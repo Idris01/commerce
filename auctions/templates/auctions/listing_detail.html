@@ -1,0 +1,13 @@
+{% extends "auctions/layout.html" %}
+
+{% block subheader %}
+<h2 class="main-head">Listing Details</h2>
+{% endblock %}
+{% block body %}
+
+    <div>
+        <h4>{{item.name}}</h4>
+       <img src="{{item.photo.path}}" alt=""> 
+
+    </div>
+{% endblock %}
