@@ -6,6 +6,7 @@ from django.urls import reverse
 from django.views import generic
 
 from .models import User, Listing, Category 
+from .forms import ListingForm
 
 
 def index(request):
