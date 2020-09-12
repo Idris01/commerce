@@ -78,7 +78,15 @@ class CategoriesListView(generic.ListView):
 
 
 def create_listing(request, username):
-	return render(request, 'auctions/create_listing.html')
+    if request.method == 'GET':
+        return render(request, 'auctions/create_listing.html',{'form':ListingForm(),"new":True})
+    else:
+        form = ListingForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return render(request, "auctions/create_listing.html",{'form':ListingForm(), 'saved': True})
+        else:
+            return render(request, "auctions/create_listing.html",{'form':form, 'saved':False})
 
 
 class ListingDetailView(generic.DetailView):

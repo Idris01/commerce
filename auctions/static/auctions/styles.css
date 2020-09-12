@@ -100,3 +100,7 @@ text-align:center ;
     background: rgba(146, 155, 68, 0.7);
     
 }
+.save-status{
+    opacity:0;
+    transition: opacity 1500ms ease-in-out;
+}
