@@ -4,9 +4,21 @@
         <h2 class="main-head">Create Listings</h2>
     {% endblock %}
 {% block body %}
+        {% if saved %} 
+        <p class="text-success save-status">saved successfully!!!</p> 
+        {% elif new %}
+        <p ></p> 
+        {% else %}
+        <p class="text-danger save-status"> Error in your input </p>
+        {% endif %}
+            {% if form.is_multipart %}
+    <form method="POST", action="", enctype="multipart/form-data">
+    {% else %}
+    <form method="POST", action="">
+    {% endif %}
+    {% csrf_token %}
+        {{form.as_p}}
+    <input type="submit" value="Save">
+    </form>
     
-    
-
-
-    TODO
 {% endblock %}
